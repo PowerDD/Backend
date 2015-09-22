@@ -1,0 +1,224 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		link(rel='stylesheet', href='//src.powerdd.com/libs/bootswatch/slate/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='shortcut icon', href='//src.powerdd.com/img/web/remaxthailand/favicon.ico', type='image/x-icon')
+		link(rel='icon', href='//src.powerdd.com/img/web/remaxthailand/favicon.ico', type='image/x-icon')
+
+	body(ng-app, ng-init="brand = 'Remax'")
+
+		nav.navbar.navbar-default.navbar-fixed-top.nav-shadow
+			.container
+				.navbar-header
+					button.navbar-toggle.collapsed(aria-controls='navbar', aria-expanded='false', data-target='#navbar', data-toggle='collapse', type='button')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='//remaxthailand.co.th')
+						img(src='//src.powerdd.com/img/web/powerdd/logo.png')
+				#navbar.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li.active
+							a(href='//remaxthailand.co.th') ข่าวสาร
+						li.dropdown
+							a.dropdown-toggle(aria-expanded='false', role='button', data-toggle='dropdown', href='#')
+								| ประเภทสินค้า 
+								span.caret
+							ul.dropdown-menu(role='menu')
+								li
+									a(href='//remaxthailand.co.th/product/category/new') New Arrivals
+								li
+									a(href='//remaxthailand.co.th/product/category/adapter') Adapter
+								li
+									a(href='//remaxthailand.co.th/product/category/bag') Bag
+								li
+									a(href='//remaxthailand.co.th/product/category/cable') Cable
+								li
+									a(href='//remaxthailand.co.th/product/category/car_gadget') Car Gadget
+								li
+									a(href='//remaxthailand.co.th/product/category/case_for_smartphone') Case for Smartphone
+								li
+									a(href='//remaxthailand.co.th/product/category/case_for_tablet') Case for Tablet
+								li
+									a(href='//remaxthailand.co.th/product/category/film') Film
+								li
+									a(href='//remaxthailand.co.th/product/category/gadget') Gadget
+								li
+									a(href='//remaxthailand.co.th/product/category/power_bank') Power Bank
+								li
+									a(href='//remaxthailand.co.th/product/category/small_talk-bluetooth') Small Talk / Bluetooth
+								li
+									a(href='//remaxthailand.co.th/product/category/speaker') Speaker
+						li
+							a(href='//remaxthailand.co.th/about_us') ขั้นตอนการสั่งซื้อ
+						li
+							a(href='//remaxthailand.co.th/contact_us') เกี่ยวกับเรา
+						li(class=(data.screen == 'dropdown contact' ? 'dropdown active' : ''))
+							a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown', role='button', aria-expanded='false')
+								| ติดต่อสอบถาม 
+								span.caret
+							ul.dropdown-menu(role='menu')
+								li
+									a(href='javascript:void(0)')
+										table
+											tr
+												td
+													img.img-responsive(src="https://powerdd-test.azurewebsites.net/images/line-powerdd.png", width="150")
+											tr
+												td(align="center")
+													| Line ID  
+													b @PowerDD
+											tr
+												td.padding-top-5(align="center")
+													i.fa.fa-phone-square
+													|  098-9919-060
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href='https://24fin-backend.azurewebsites.net') สั่งซื้อสินค้า {{brand}}
+
+		.container.margin-top-70
+			.row.pin
+				.col-md-3(ng-hide="brand == 'Remax'")
+					img.img-responsive(src='//placehold.it/520x300&text=Remax', ng-click="brand = 'Remax'")
+				.col-md-3(ng-hide="brand == 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/520x300&text=Xiaomi', ng-click="brand = 'Xiaomi'")
+				.col-md-3(ng-hide="brand == 'MiLi'")
+					img.img-responsive(src='//placehold.it/520x300&text=MiLi', ng-click="brand = 'MiLi'")
+				.col-md-3(ng-hide="brand == 'PNG'")
+					img.img-responsive(src='//placehold.it/520x300&text=PNG', ng-click="brand = 'PNG'")
+				.col-md-3(ng-hide="brand == 'Havit'")
+					img.img-responsive(src='//placehold.it/520x300&text=Havit', ng-click="brand = 'Havit'")
+
+		.container.margin-top-20
+			.row.pin
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/520x300&text=Remax Logo')
+				.col-md-3(ng-hide="brand != 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/520x300&text=Xiaomi Logo')
+				.col-md-3(ng-hide="brand != 'MiLi'")
+					img.img-responsive(src='//placehold.it/520x300&text=MiLi Logo')
+				.col-md-3(ng-hide="brand != 'PNG'")
+					img.img-responsive(src='//placehold.it/520x300&text=PNG Logo')
+				.col-md-3(ng-hide="brand != 'Havit'")
+					img.img-responsive(src='//placehold.it/520x300&text=Havit Logo')
+
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/520x300&text=New+Arrivals')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/480x480&text=Adapter')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/320x480&text=Bag')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/580x480&text=Cable')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/430x480&text=Car+Gadget')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/380x480&text=Case+for+Smartphone')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/490x480&text=Case+for+Tablet')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/530x480&text=Gadget')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/480x480&text=Power+Bank')
+				.col-md-3(ng-hide="brand != 'Remax'")
+					img.img-responsive(src='//placehold.it/380x480&text=Small+Talk+-+Bluetooth')
+
+					
+				.col-md-3(ng-hide="brand != 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Adapter')
+				.col-md-3(ng-hide="brand != 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Cable')
+				.col-md-3(ng-hide="brand != 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Gadget')
+				.col-md-3(ng-hide="brand != 'Xiaomi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Power+Bank')
+
+					
+				.col-md-3(ng-hide="brand != 'MiLi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Gadget')
+				.col-md-3(ng-hide="brand != 'MiLi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Bluetooth')
+				.col-md-3(ng-hide="brand != 'MiLi'")
+					img.img-responsive(src='//placehold.it/480x480&text=Small+Talk')
+
+					
+				.col-md-3(ng-hide="brand != 'PNG'")
+					img.img-responsive(src='//placehold.it/480x480&text=Car+Gadget')
+				.col-md-3(ng-hide="brand != 'PNG'")
+					img.img-responsive(src='//placehold.it/480x480&text=Gadget')
+				.col-md-3(ng-hide="brand != 'PNG'")
+					img.img-responsive(src='//placehold.it/480x480&text=Adapter')
+
+					
+				.col-md-3(ng-hide="brand != 'Havit'")
+					img.img-responsive(src='//placehold.it/480x480&text=Cable')
+				.col-md-3(ng-hide="brand != 'Havit'")
+					img.img-responsive(src='//placehold.it/480x480&text=Gadget')
+				.col-md-3(ng-hide="brand != 'Havit'")
+					img.img-responsive(src='//placehold.it/480x480&text=Small+Talk+-+Bluetooth')
+
+
+		nav.navbar.margin-top-20(style="border-radius:0; margin-bottom: 0px;")
+			.container
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav.navbar-nav-center
+						li(class=(data.screen == 'news' ? 'active' : ''))
+							a(href='#{data.websiteUrl}/news') ข่าวสาร
+
+						li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
+							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+								| ประเภทสินค้า 
+								span.caret
+							ul.dropdown-menu(role='menu')
+						li(class=(data.screen == 'about_us' ? 'active' : ''))
+							a(href='#{data.websiteUrl}/how_to_order') ขั้นตอนการสั่งซื้อ
+						li(class=(data.screen == 'about_us' ? 'active' : ''))
+							a(href='#{data.websiteUrl}/about_us') เกี่ยวกับเรา
+						li(class=(data.screen == 'contact' ? 'active' : ''))
+							a(href='#{data.websiteUrl}/contact') ติดต่อสอบถาม
+						li(class=(data.screen == 'register' ? 'active' : ''))
+							a(href='#{data.websiteUrl}') สมัครสมาชิก
+
+		.footer(style="border-radius:0; background-color: #fdbe0f; color:black")
+			.container
+				.col-xs-12.col-md-3
+					table(style="margin-top:20px; background-color: #fdbe0f; color:black")
+						tr
+							td
+								img.img-responsive(src="https://powerdd-test.azurewebsites.net/images/line-powerdd.png", width="150")
+						tr
+							td(align="center")
+								| Line ID  
+								b @PowerDD
+
+				.col-xs-12.col-md-5
+					h3 สิทธิประโยชน์พิเศษเมื่อ Add Line
+					ul
+						li  รับสิทธิ์ร่วมกิจกรรมพิเศษของ PowerDD
+						li  รับข่าวสาร และโปรโมชั่นพิเศษก่อนใคร
+						li  รับข้อมูลเกี่ยวกับสินค้า กิจกรรม สิทธิพิเศษ และรายการส่งเสริมการขาย
+				.col-xs-12.col-md-4
+					h3 บริษัท พาวเวอร์ โบล์ท จำกัด
+					| 900/31 อาคารเอสวีซิตี้ ชั้น 1 ห้อง F-13
+					br
+					| พระราม3 แขวงบางโพงพาง เขตยานนาวา
+					br
+					| จังหวัดนนทบุรี 10120
+					br
+					br
+					| มือถือ: 098-9919-060
+					br
+					| แฟกซ์: +66 (0)2 295 3296
+					br
+					| อีเมล: service@powerdd.com
+
+		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
+		script(src='//src.powerdd.com/libs/bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='//src.powerdd.com/libs/angular/1.4.6/angular.min.js')
+		script(src='//src.powerdd.com/libs/angular/1.4.6/angular-animate.min.js')
+		script(src='/javascripts/common.js')
