@@ -7,7 +7,11 @@ var http = require('http')
 	, bodyParser = require('body-parser')
 	, errorHandler = require('errorhandler')
 	, routes = require('./routes');
-
+i18n.configure({
+	locales: ['th', 'en'],
+	defaultLocale: 'th',
+	directory: __dirname + '/locales'
+});
 var app = express();
 
 app.set('port', 9991);
