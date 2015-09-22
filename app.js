@@ -6,12 +6,15 @@ var http = require('http')
 	, methodOverride = require('method-override')
 	, bodyParser = require('body-parser')
 	, errorHandler = require('errorhandler')
-	, routes = require('./routes');
+	, routes = require('./routes')
+	,i18n = require('i18n');
+	
 i18n.configure({
 	locales: ['th', 'en'],
 	defaultLocale: 'th',
 	directory: __dirname + '/locales'
 });
+
 var app = express();
 
 app.set('port', 9991);
