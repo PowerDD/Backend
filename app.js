@@ -7,7 +7,7 @@ var http = require('http')
 	, bodyParser = require('body-parser')
 	, errorHandler = require('errorhandler')
 	, routes = require('./routes')
-	,i18n = require('i18n');
+	, i18n = require('i18n');
 	
 i18n.configure({
 	locales: ['th', 'en'],
