@@ -10,133 +10,133 @@ html(lang='en')
 
 	body.skin-blue.sidebar-mini
 	.wrapper
-			header.main-header
-				a.logo(href="index2.html")
-					span.logo-mini
-						b  PDD
-					span.logo-lg
-						b PowerDD  
-						| Backend
-				
-				nav.navbar.navbar-static-top(role="navigation")
-					a.sidebar-toggle(href="#", data-toggle="offcanvas", role="button")
-						span.sr-only  Toggle navigation
+		header.main-header
+			a.logo(href="index2.html")
+				span.logo-mini
+					b  PDD
+				span.logo-lg
+					b PowerDD  
+					| Backend
+			
+			nav.navbar.navbar-static-top(role="navigation")
+				a.sidebar-toggle(href="#", data-toggle="offcanvas", role="button")
+					span.sr-only  Toggle navigation
 
-					div.navbar-custom-menu
-						ul.nav.navbar-nav
+				div.navbar-custom-menu
+					ul.nav.navbar-nav
 
-							li.dropdown
-								a.dropdown-toggle(href="#", data-toggle="dropdown")
-									span
-										|  #{__('Language')}
-									span.caret
-								ul.dropdown-menu(role="menu")
-									li(class=(data.memberInfo.Locale.substr(0,2) == 'th' ? 'active' : ''))
-										a(href="javascript:void(0)") ภาษาไทย
-									li(class=(data.memberInfo.Locale.substr(0,2) == 'en' ? 'active' : ''))
-										a(href="javascript:void(0)") English
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown")
+								span
+									|  #{__('Language')}
+								span.caret
+							ul.dropdown-menu(role="menu")
+								li(class=(data.memberInfo.Locale.substr(0,2) == 'th' ? 'active' : ''))
+									a(href="javascript:void(0)") ภาษาไทย
+								li(class=(data.memberInfo.Locale.substr(0,2) == 'en' ? 'active' : ''))
+									a(href="javascript:void(0)") English
 
-							li.dropdown.user.user-menu
-								a.dropdown-toggle(href="#", data-toggle="dropdown")
-									img.user-image(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
-									span.hidden-xs  #{data.memberInfo.DisplayName}
-								ul.dropdown-menu
-									li.user-header
-										img.img-circle(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
-										p
-											| #{data.memberInfo.DisplayName} - #{__('Member Type - '+data.memberInfo.SelectedMemberType)}
-											small #{__('Member since')} #{data.memberInfo.RegisterDate}
-									li.user-footer
-										div.pull-left
-											a.btn.btn-default.btn-flat(href="#") #{__('Profile')}
-										div.pull-right
-											a.btn-logout.btn.btn-default.btn-flat(href="javascript:void(0)") #{__('Sign out')}
+						li.dropdown.user.user-menu
+							a.dropdown-toggle(href="#", data-toggle="dropdown")
+								img.user-image(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
+								span.hidden-xs  #{data.memberInfo.DisplayName}
+							ul.dropdown-menu
+								li.user-header
+									img.img-circle(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
+									p
+										| #{data.memberInfo.DisplayName} - #{__('Member Type - '+data.memberInfo.SelectedMemberType)}
+										small #{__('Member since')} #{data.memberInfo.RegisterDate}
+								li.user-footer
+									div.pull-left
+										a.btn.btn-default.btn-flat(href="#") #{__('Profile')}
+									div.pull-right
+										a.btn-logout.btn.btn-default.btn-flat(href="javascript:void(0)") #{__('Sign out')}
 
-			aside.main-sidebar
-				section.sidebar
-					div.user-panel
-						div.pull-left.image
-							img.img-circle(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
-						div.pull-left.info
-							p
-								| #{data.memberInfo.DisplayName}
+		aside.main-sidebar
+			section.sidebar
+				div.user-panel
+					div.pull-left.image
+						img.img-circle(src=(typeof data.memberInfo.Image != 'undefined' ? data.memberInfo.Image : "/images/avatar5.png"), alt="User Image")
+					div.pull-left.info
+						p
+							| #{data.memberInfo.DisplayName}
+						a(href="#")
+							i.fa.fa-user.text-success
+							| #{__('Member Type - '+data.memberInfo.SelectedMemberType)}
+
+				form.sidebar-form(action="#", method="get")
+					div.input-group
+						input.form-control(type="text", name="q", placeholder="Search...")
+						span.input-group-btn
+							button.btn.btn-flat(type='submit', name='search')
+								i.fa.fa-search
+
+				ul.sidebar-menu
+					li.header  #{__('Shop')}
+					li(class=(data.screen === 'member' ? 'treeview active' : 'treeview'))
+						a(href="#")
+							i(class=(data.screen === 'member' ? 'fa fa-user text-aqua' : 'fa fa-user'))
+							span  #{__('Member')}
+
+					li(class=(data.screen === 'product' || data.screen === 'category' || data.screen === 'brand' ? 'treeview active' : 'treeview'))
+						a(href="./category")
+							i(class=(data.screen === 'product' || data.screen === 'category' ? 'fa fa-cubes text-aqua' : 'fa fa-cubes'))
+							span  #{__('Product')}
+					li(class=(data.screen === 'cart' ? 'treeview active' : 'treeview'))
+						a(href="./cart")
+							i(class=(data.screen === 'cart' || data.screen === 'order' ? 'fa fa-shopping-cart text-aqua' : 'fa fa-shopping-cart'))
+							span  #{__('Order')}
+					li(class=(data.screen === 'shop' || data.screen === 'shop-config' ? 'treeview active' : 'treeview'))
+						a(href="#")
+							i(class=(data.screen === 'shop' || data.screen === 'shop-config' ? 'fa fa-home text-aqua' : 'fa fa-home'))
+							span  #{__('Shop')}
+							i.fa.fa-angle-left.pull-right
+						ul.treeview-menu
+							li(class=(data.screen === 'shop' ? 'active' : ''))
+								a(href="./shop")
+									i(class=(data.screen === 'shop' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
+									|  #{__('Shop')}
+
+							li(class=(data.screen === 'shop-config' ? 'active' : ''))
+								a(href="./shop-config")
+									i(class=(data.screen === 'shop-config' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
+									|  #{__('Configuration')}
+					li(class=(data.screen === 'dealer' ? 'treeview active' : 'treeview'))
+						a(href="./dealer")
+							i(class=(data.screen === 'dealer' ? 'fa fa-users text-aqua' : 'fa fa-users'))
+							span  #{__('Dealer')}
+					if data.memberInfo.SelectedMemberType == 'Officer'		
+						li(class=(data.screen === 'register-dealer' ? 'treeview active' : 'treeview'))
 							a(href="#")
-								i.fa.fa-user.text-success
-								| #{__('Member Type - '+data.memberInfo.SelectedMemberType)}
-
-					form.sidebar-form(action="#", method="get")
-						div.input-group
-							input.form-control(type="text", name="q", placeholder="Search...")
-							span.input-group-btn
-								button.btn.btn-flat(type='submit', name='search')
-									i.fa.fa-search
-
-					ul.sidebar-menu
-						li.header  #{__('Shop')}
-						li(class=(data.screen === 'member' ? 'treeview active' : 'treeview'))
-							a(href="#")
-								i(class=(data.screen === 'member' ? 'fa fa-user text-aqua' : 'fa fa-user'))
-								span  #{__('Member')}
-
-						li(class=(data.screen === 'product' || data.screen === 'category' || data.screen === 'brand' ? 'treeview active' : 'treeview'))
-							a(href="./category")
-								i(class=(data.screen === 'product' || data.screen === 'category' ? 'fa fa-cubes text-aqua' : 'fa fa-cubes'))
-								span  #{__('Product')}
-						li(class=(data.screen === 'cart' ? 'treeview active' : 'treeview'))
-							a(href="./cart")
-								i(class=(data.screen === 'cart' || data.screen === 'order' ? 'fa fa-shopping-cart text-aqua' : 'fa fa-shopping-cart'))
-								span  #{__('Order')}
-						li(class=(data.screen === 'shop' || data.screen === 'shop-config' ? 'treeview active' : 'treeview'))
-							a(href="#")
-								i(class=(data.screen === 'shop' || data.screen === 'shop-config' ? 'fa fa-home text-aqua' : 'fa fa-home'))
-								span  #{__('Shop')}
+								i(class=(data.screen === 'register-dealer' ? 'fa fa-bar-chart-o text-aqua' : 'fa fa-bar-chart-o'))
+								span  #{__('screen-report-header')}
 								i.fa.fa-angle-left.pull-right
 							ul.treeview-menu
-								li(class=(data.screen === 'shop' ? 'active' : ''))
-									a(href="./shop")
-										i(class=(data.screen === 'shop' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
-										|  #{__('Shop')}
+								li(class=(data.screen === 'register-dealer' ? 'active' : ''))
+									a(href="./register-dealer")
+										i(class=(data.screen === 'register-dealer' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
+										|  #{__('register_dealer')}
+										
+						li(class=(data.screen === 'claim' ? 'treeview active' : 'treeview'))
+							a(href="#")
+								i(class=(data.screen === 'claim' ? 'fa fa-cubes text-aqua' : 'fa fa-cubes'))
+								span  #{__('Claim-System')}
+								i.fa.fa-angle-left.pull-right
+							ul.treeview-menu
+								li(class=(data.screen === 'claim' ? 'active' : ''))
+									a(href="./claim")
+										i(class=(data.screen === 'claim' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
+										|  #{__('Claim-Data')}
+		div.content-wrapper
+			section.content-header
+				h1 #{__('Screen Title - '+data.screen)}
+					small= data.titleDescription
+			section.content
+				block content
 
-								li(class=(data.screen === 'shop-config' ? 'active' : ''))
-									a(href="./shop-config")
-										i(class=(data.screen === 'shop-config' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
-										|  #{__('Configuration')}
-						li(class=(data.screen === 'dealer' ? 'treeview active' : 'treeview'))
-							a(href="./dealer")
-								i(class=(data.screen === 'dealer' ? 'fa fa-users text-aqua' : 'fa fa-users'))
-								span  #{__('Dealer')}
-						if data.memberInfo.SelectedMemberType == 'Officer'		
-							li(class=(data.screen === 'register-dealer' ? 'treeview active' : 'treeview'))
-								a(href="#")
-									i(class=(data.screen === 'register-dealer' ? 'fa fa-bar-chart-o text-aqua' : 'fa fa-bar-chart-o'))
-									span  #{__('screen-report-header')}
-									i.fa.fa-angle-left.pull-right
-								ul.treeview-menu
-									li(class=(data.screen === 'register-dealer' ? 'active' : ''))
-										a(href="./register-dealer")
-											i(class=(data.screen === 'register-dealer' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
-											|  #{__('register_dealer')}
-											
-							li(class=(data.screen === 'claim' ? 'treeview active' : 'treeview'))
-								a(href="#")
-									i(class=(data.screen === 'claim' ? 'fa fa-cubes text-aqua' : 'fa fa-cubes'))
-									span  #{__('Claim-System')}
-									i.fa.fa-angle-left.pull-right
-								ul.treeview-menu
-									li(class=(data.screen === 'claim' ? 'active' : ''))
-										a(href="./claim")
-											i(class=(data.screen === 'claim' ? 'fa fa-circle-o text-yellow' : 'fa fa-circle-o'))
-											|  #{__('Claim-Data')}
-			div.content-wrapper
-				section.content-header
-					h1 #{__('Screen Title - '+data.screen)}
-						small= data.titleDescription
-				section.content
-					block content
-
-			footer.main-footer
-				div.pull-right.hidden-xs  Version  
-					b 2.0
-				strong  Copyright &copy; 2015 
-					a(href="http://www.PowerDD.com") PowerDD
-				|  All rights reserved.
+		footer.main-footer
+			div.pull-right.hidden-xs  Version  
+				b 2.0
+			strong  Copyright &copy; 2015 
+				a(href="http://www.PowerDD.com") PowerDD
+			|  All rights reserved.
