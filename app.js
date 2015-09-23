@@ -33,7 +33,8 @@ if ('development' == app.get('env')) {
 app.get('*', function(req, res) {
 	data = {};
 	data.screen = 'index';
-	data.memberInfo.Locale = 'th_Th';
+	var Locale = 'th_Th';
+	data.memberInfo.add(Locale);
 	routes.index(req, res, data);
 
 });
