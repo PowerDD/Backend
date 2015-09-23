@@ -33,9 +33,9 @@ if ('development' == app.get('env')) {
 app.get('*', function(req, res) {
 	data = {};
 	data.screen = 'index';
+	data.memberInfo = [];
 	data.memberInfo.push({Locale: 'th_Th'});
 	routes.index(req, res, data);
-
 });
 
 var server = http.createServer(app);
