@@ -46,7 +46,7 @@ app.get('*', function(req, res) {
 	}
 	else {
 		data = {};
-		data.screen = (req.cookies) ? 'index' : 'login';
+		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login' : 'index';
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th_Th';
 
