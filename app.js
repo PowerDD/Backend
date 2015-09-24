@@ -32,10 +32,28 @@ if ('development' == app.get('env')) {
 
 app.get('*', function(req, res) {
 	data = {};
-	data.screen = 'index';
+	data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey =='') ? 'login' : 'index';
 	data.memberInfo = {};
 	data.memberInfo.locale = 'th_Th';
+
+	if ( data.screen != 'login' ) {		
+		var url = req.headers['x-original-url'].split('/');
+		url = url.filter(function(n){ return n !== ''; });
+		if ( url.length >= 1 ) {
+			data.screen = url[0];
+			fs.exists('./views/'+data.screen+'.jade', function (exists) {
+				if (exists) {
+					fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
+						data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';	
+						data.subUrl = (url.length == 1 ) ? '' : url[1];
+					});
+				}
+			});
+		}
+	}
+
 	routes.index(req, res, data);
+
 });
 
 var server = http.createServer(app);
