@@ -299,5 +299,9 @@
 	"screen-customer-list-detail": " ",
 	"name": "Name",
 	"screen-customer-info-header": "Customer Information",
-	"screen-customer-info-detail": " "	
+	"screen-customer-info-detail": " ",
+	"Sign in with a different account": "Sign in with a different account",
+	"Stay signed in": "Stay signed in",
+	"Forgot password": "Forgot password",
+	"Sign in": "Sign in"
 }

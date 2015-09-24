@@ -17,10 +17,10 @@ form {
 	background-color: #eaeaec;
 }
 
-.footer {
-    padding: 10px 20px 10px 20px;
-}
+.footer { padding: 10px 20px 10px 20px }
+button.btn-block { margin-bottom: 10px; }
+.login-box, .register-box { margin: 7% auto 0 }
 
-#btn-login {
-	margin-bottom: 10px;
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

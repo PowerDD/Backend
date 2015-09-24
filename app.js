@@ -55,6 +55,7 @@ app.get('*', function(req, res) {
 	else {
 		data = {};
 		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login' : 'index';
+		data.language = req.cookies.language;
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th_Th';
 

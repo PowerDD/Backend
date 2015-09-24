@@ -16,7 +16,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; header = 'ลงช
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
 					h3.box-title {{header}}
-				form(ng-hide="action != 'login'")
+				form(ng-show="action == 'login'")
 					.form-group.has-feedback
 						input.form-control(type='text', placeholder="#{__('username')}")
 						span.fa.fa-envelope.form-control-feedback
@@ -26,38 +26,38 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; header = 'ลงช
 					.checkbox.pull-left
 						label
 							input#remember(type='checkbox')
-							|  คงอยู่ในระบบ
+							|  #{__('Stay signed in')}
 					.btn-group.pull-right
 						span.btn.dropdown-toggle(data-toggle='dropdown')
 							i.fa.fa-globe
-							|  #{__('language')}
+							|  #{__('language')}  
 							span.caret
 						ul.dropdown-menu
-							li.active
-								a(href='javascript:void(0)') ภาษาไทย
-							li
-								a(href='/language/en') English
+							li(class="#{data.language == 'th' ? 'active' : ''}")
+								a(href="#{data.language == 'th' ? 'javascript:void(0)' : '/language/th'}") ภาษาไทย
+							li(class="#{data.language == 'en' ? 'active' : ''}")
+								a(href="#{data.language == 'en' ? 'javascript:void(0)' : '/language/en'}") English
 					.clearfix
 
-				form.ng-hide(ng-hide="action != 'register'")
+				form.ng-hide(ng-cloak, ng-show="action == 'register'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder='Username')
+						input.form-control(type='text', placeholder="#{__('username')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input.form-control(type='text', placeholder='Mobile Number')
 						span.fa.fa-phone-square.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='email', placeholder='Email')
+						input.form-control(type='email', placeholder="#{__('email')}")
 						span.fa.fa-envelope.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='password', placeholder='Password')
+						input.form-control(type='password', placeholder="#{__('password')}")
 						span.fa.fa-lock.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='password2', placeholder='Password2')
+						input.form-control(type='password2', placeholder="#{__('retype password')}")
 						span.fa.fa-lock.form-control-feedback
 					.clearfix
 
-				form.ng-hide(ng-hide="action != 'forgot'")
+				form.ng-hide(ng-cloak, ng-show="action == 'forgot'")
 					.form-group.has-feedback
 						input.form-control(type='text', placeholder='Username or Mobile Number or Email')
 						span.fa.fa-user.form-control-feedback
@@ -77,15 +77,15 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; header = 'ลงช
 						p
 							img.loading.top-2(src='/images/icons/loading.gif', alt='loading')
 							span.msg-detail
-					button#btn-login.btn.bg-light-blue.btn-block(type='button', ng-hide="action != 'login'") ลงชื่อเข้าใช้
-					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-hide="action != 'register'") สมัครสมาชิกใหม่
-					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-hide="action != 'forgot'") ตรวจสอบ
-					p(ng-hide="action == 'login'")
-						a(href='javascript:', ng-click="action = 'login'; header = 'ลงชื่อเข้าใช้'") ลงชื่อเข้าใช้
-					p.ng-hide(ng-hide="action == 'register'")
-						a(href='javascript:', ng-click="action = 'register'; header = 'สมัครสมาชิกใหม่'") สมัครสมาชิกใหม่
-					p.ng-hide(ng-hide="action == 'forgot'")
-						a(href='javascript:', ng-click="action = 'forgot'; header = 'ลืมรหัสผ่าน'") ลืมรหัสผ่าน
+					button#btn-login.btn.bg-light-blue.btn-block(type='button', ng-hide="action != 'login'") #{__('Sign in')}
+					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'register'") สมัครสมาชิกใหม่
+					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'forgot'") ตรวจสอบ
+					p.ng-hide(ng-cloak, ng-hide="action == 'login'")
+						a(href='javascript:', ng-click="action = 'login'; header = '#{__('Sign in')}'") #{__('Sign in')}
+					p(ng-hide="action == 'register'")
+						a(href='javascript:', ng-click="action = 'register'; header = '#{__('Register')}'") #{__('Register')}
+					p(ng-hide="action == 'forgot'")
+						a(href='javascript:', ng-click="action = 'forgot'; header = '#{__('Forgot password')}'") #{__('Forgot password')}
 
 		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
 		script(src='//src.powerdd.com/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')

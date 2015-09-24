@@ -302,5 +302,9 @@
 	"screen-customer-list-detail": " ",
 	"screen-customer-info-header": "รายละเอียดข้อมูลลูกค้า",
 	"screen-customer-info-detail": "จัดการข้อมูลต่างๆ ของลูกค้า",
+	"Sign in with a different account": "ลงชื่อเข้าใช้ด้วยบัญชีอื่น",
+	"Stay signed in": "คงอยู่ในระบบ",
+	"Forgot password": "ลืมรหัสผ่าน",
+	"Sign in": "ลงชื่อเข้าใช้",
 	"Hello": "Hello"	
 }
