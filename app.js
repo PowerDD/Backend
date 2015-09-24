@@ -8,6 +8,8 @@ var http = require('http')
 	, errorHandler = require('errorhandler')
 	, routes = require('./routes')
 	, i18n = require('i18n');
+
+global.config = require('./config.js');
 	
 i18n.configure({
 	locales: ['th', 'en'],
@@ -17,7 +19,7 @@ i18n.configure({
 
 var app = express();
 
-app.set('port', 9991);
+app.set('port', config.port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
