@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en', ng-app='PowerDD')
 	head
 		title= data.title+' | PowerDD Backend'
 		meta(charset='utf-8')
@@ -12,8 +12,8 @@ html(lang='en')
 		link(rel='shortcut icon', href='//src.powerdd.com/img/web/remaxthailand/favicon.ico', type='image/x-icon')
 		link(rel='icon', href='//src.powerdd.com/img/web/remaxthailand/favicon.ico', type='image/x-icon')
 
-	body.skin-blue.sidebar-mini
-	.wrapper
+	body.skin-blue.sidebar-mini(ng-controller='Backend')
+		.wrapper
 		header.main-header
 			a.logo(href="index2.html")
 				span.logo-mini
@@ -148,6 +148,7 @@ html(lang='en')
 		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
 		script(src='//src.powerdd.com/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
 		script(src='//src.powerdd.com/libs/angular/1.4.6/angular.min.js')
+		script(src='//src.powerdd.com/libs/angular/ngStorage/0.3.9/ngStorage.min.js')
 		script(src='//src.powerdd.com/libs/bootstrap/3.3.5/js/bootstrap.min.js')
 		script(src='//src.powerdd.com/libs/adminlte/2.3.0/js/app.min.js')
 		script(src='/javascripts/common.js')
