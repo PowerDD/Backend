@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('*', function(req, res) {
 	data = {};
-	data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey =='') ? 'login' : 'index';
+	data.screen = (typeof req.cookies.memberKey == 'undefined') ? 'login' : 'index';
 	data.memberInfo = {};
 	data.memberInfo.locale = 'th_Th';
 
