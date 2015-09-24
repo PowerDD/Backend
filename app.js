@@ -33,14 +33,15 @@ if ('development' == app.get('env')) {
 }
 
 app.get('*', function(req, res) {
+	var url = req.headers['x-original-url'].split('/');
+	url = url.filter(function(n){ return n !== ''; });
+
 	data = {};
-	data.screen = (req.cookies) ? 'index' : 'login';
+	data.screen = (url.length >= 1) ? url[0] : 'index'; //(req.cookies) ? 'index' : 'login';
 	data.memberInfo = {};
 	data.memberInfo.locale = 'th_Th';
 
-	if ( data.screen != 'login' ) {		
-		var url = req.headers['x-original-url'].split('/');
-		url = url.filter(function(n){ return n !== ''; });
+	if ( data.screen != 'login' ) {
 		if ( url.length >= 1 ) {
 			data.screen = url[0];
 			fs.exists('./views/'+data.screen+'.jade', function (exists) {
