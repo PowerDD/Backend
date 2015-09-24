@@ -43,6 +43,8 @@ app.get('*', function(req, res) {
 		req.setLocale(req.cookies.language);
 	}
 
+	console.log(req.cookies.language);
+
 	var url = req.headers['uri'].split('/');
 	url = url.filter(function(n){ return n !== ''; });
 
