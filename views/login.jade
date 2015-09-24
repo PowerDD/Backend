@@ -1,7 +1,7 @@
 doctype html
-html(lang='en', ng-app='PowerDD')
+html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; header = 'ลงชื่อเข้าใช้'")
 	head
-		title= 'Sign in | PowerDD Backend'
+		title= '{{header}} | PowerDD Backend'
 		meta(charset='utf-8')
 		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
 		link(rel='stylesheet', href='//src.powerdd.com/libs/bootstrap/3.3.5/css/bootstrap.min.css')
@@ -15,8 +15,8 @@ html(lang='en', ng-app='PowerDD')
 		.login-box
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
-					h3.box-title  Sign in
-				form(action='../../index2.html', method='post')
+					h3.box-title {{header}}
+				form(ng-hide="action != 'login'")
 					.form-group.has-feedback
 						input.form-control(type='email', placeholder='Email')
 						span.fa.fa-envelope.form-control-feedback
@@ -36,8 +36,39 @@ html(lang='en', ng-app='PowerDD')
 							li.active
 								a(href='javascript:void(0)') ภาษาไทย
 							li
-								a(href='/language/en') English						
+								a(href='/language/en') English
 					.clearfix
+
+				form.ng-hide(ng-hide="action != 'register'")
+					.form-group.has-feedback
+						input.form-control(type='text', placeholder='Username')
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='text', placeholder='Mobile Number')
+						span.fa.fa-phone-square.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='email', placeholder='Email')
+						span.fa.fa-envelope.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='password', placeholder='Password')
+						span.fa.fa-lock.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='password2', placeholder='Password2')
+						span.fa.fa-lock.form-control-feedback
+					.clearfix
+
+				form.ng-hide(ng-hide="action != 'forgot'")
+					.form-group.has-feedback
+						input.form-control(type='text', placeholder='Username or Mobile Number or Email')
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='text', placeholder='Question')
+						span.fa.fa-question-circle.form-control-feedback
+					.form-group.has-feedback
+						input.form-control(type='text', placeholder='Answer')
+						span.fa.fa-quote-right.form-control-feedback
+					.clearfix
+
 				.footer
 					#dv-info.callout.callout-info.margin-bottom-0.hidden
 						h4
@@ -46,10 +77,15 @@ html(lang='en', ng-app='PowerDD')
 						p
 							img.loading.top-2(src='/images/icons/loading.gif', alt='loading')
 							span.msg-detail
-					button#btn-login.btn.bg-light-blue.btn-block.for-hide(type='button') ลงชื่อเข้าใช้
-					p.for-hide
-						a(href='/forgot') ลืมรหัสผ่าน
-					a.for-hide.text-center(href='/register') สมัครสมาชิกใหม่
+					button#btn-login.btn.bg-light-blue.btn-block(type='button', ng-hide="action != 'login'") ลงชื่อเข้าใช้
+					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-hide="action != 'register'") สมัครสมาชิกใหม่
+					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-hide="action != 'forgot'") ตรวจสอบ
+					p(ng-hide="action == 'login'")
+						a(href='javascript:', ng-click="action = 'login'; header = 'ลงชื่อเข้าใช้'") ลงชื่อเข้าใช้
+					p.ng-hide(ng-hide="action == 'register'")
+						a(href='javascript:', ng-click="action = 'register'; header = 'สมัครสมาชิกใหม่'") สมัครสมาชิกใหม่
+					p.ng-hide(ng-hide="action == 'forgot'")
+						a(href='javascript:', ng-click="action = 'forgot'; header = 'ลืมรหัสผ่าน'") ลืมรหัสผ่าน
 
 		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
 		script(src='//src.powerdd.com/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
