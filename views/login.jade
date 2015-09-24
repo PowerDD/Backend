@@ -78,12 +78,12 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; header = '#{__('Sig
 							img.loading.top-2(src='/images/icons/loading.gif', alt='loading')
 							span.msg-detail
 					button#btn-login.btn.bg-light-blue.btn-block(type='button', ng-hide="action != 'login'") #{__('Sign in')}
-					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'register'") สมัครสมาชิกใหม่
+					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'register'") #{__('Create account')}
 					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'forgot'") ตรวจสอบ
 					p.ng-hide(ng-cloak, ng-hide="action == 'login'")
 						a(href='javascript:', ng-click="action = 'login'; header = '#{__('Sign in')}'") #{__('Sign in')}
 					p(ng-hide="action == 'register'")
-						a(href='javascript:', ng-click="action = 'register'; header = '#{__('Register')}'") #{__('Register')}
+						a(href='javascript:', ng-click="action = 'register'; header = '#{__('Create account')}'") #{__('Create account')}
 					p(ng-hide="action == 'forgot'")
 						a(href='javascript:', ng-click="action = 'forgot'; header = '#{__('Forgot password')}'") #{__('Forgot password')}
 
