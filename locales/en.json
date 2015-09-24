@@ -16,7 +16,7 @@
 	"Free Shipping": "Free Shipping",
 	"Has Shipping Cost": "Has Shipping Cost",
 	"Hours": "Hours",
-	"item(s)": "Items"
+	"item(s)": "Items",
 	"itemOnCart": "Items On Cart ",
 	"Language": "Language",
 	"loadingData": "Loading data, please wait",
@@ -74,7 +74,6 @@
 	"claim_finish":"Finish",
 	"submit": "Submit",
 	"date": "Date",
-
 	"welcome to new system v2": "Welcome to Backend System (Version 2.0)",
 	"hello": "Hello",
 	"hello %s": "Hi, ",

@@ -38,12 +38,10 @@ app.get('*', function(req, res) {
 
 	if (typeof req.cookies.language == 'undefined') {
 		res.cookie('language', 'th');
-		req.setLocale('th');
+		res.setLocale('th');
 	} else {
-		req.setLocale(req.cookies.language);
+		res.setLocale(req.cookies.language);
 	}
-
-	console.log(req.cookies.language);
 
 	var url = req.headers['uri'].split('/');
 	url = url.filter(function(n){ return n !== ''; });
