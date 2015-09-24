@@ -42,6 +42,7 @@ app.get('*', function(req, res) {
 	if (url[0] == 'language' && url.length >= 1)
 	{
 		res.cookie('language', url[1], { signed: true });
+		req.setLocale(url[1]);
 		res.redirect(req.get('referer'));
 	}
 	else {
