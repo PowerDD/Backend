@@ -36,12 +36,19 @@ if ('development' == app.get('env')) {
 
 app.get('*', function(req, res) {
 
+	if (typeof req.cookies.language == 'undefined') {
+		res.cookie('language', 'th');
+		req.setLocale('th');
+	} else {
+		req.setLocale(req.cookies.language);
+	}
+
 	var url = req.headers['uri'].split('/');
 	url = url.filter(function(n){ return n !== ''; });
 
 	if (url[0] == 'language' && url.length >= 1)
 	{
-		res.cookie('language', url[1], { signed: true });
+		res.cookie('language', url[1]);
 		req.setLocale(url[1]);
 		res.redirect(req.get('referer'));
 	}
