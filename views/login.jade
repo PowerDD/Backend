@@ -20,10 +20,10 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'forgot'") #{__('Forgot password')}
 				form(ng-show="action == 'login'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
+						input#username.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='password', placeholder="#{__('password')}")
+						input#password.form-control(type='password', placeholder="#{__('password')}")
 						span.fa.fa-lock.form-control-feedback
 					.checkbox.pull-left
 						label
@@ -43,31 +43,31 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 
 				form.ng-hide(ng-cloak, ng-show="action == 'register'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('username')}")
+						input#username.form-control(type='text', placeholder="#{__('username')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('Mobile Phone Number')}")
+						input#mobile.form-control(type='text', placeholder="#{__('Mobile Phone Number')}")
 						span.fa.fa-phone-square.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='email', placeholder="#{__('email')}")
+						input#email.form-control(type='email', placeholder="#{__('email')}")
 						span.fa.fa-envelope.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='password', placeholder="#{__('password')}")
+						input#password.form-control(type='password', placeholder="#{__('password')}")
 						span.fa.fa-lock.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='password2', placeholder="#{__('retype password')}")
+						input#password2.form-control(type='password', placeholder="#{__('retype password')}")
 						span.fa.fa-lock.form-control-feedback
 					.clearfix
 
 				form.ng-hide(ng-cloak, ng-show="action == 'forgot'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
+						input#username.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('Question')}")
+						input#question.form-control(type='text', placeholder="#{__('Question')}")
 						span.fa.fa-question-circle.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('Answer')}")
+						input#answer.form-control(type='text', placeholder="#{__('Answer')}")
 						span.fa.fa-quote-right.form-control-feedback
 					.clearfix
 
