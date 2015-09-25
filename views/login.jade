@@ -21,10 +21,10 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 				form(ng-show="action == 'login'")
 					.form-group.has-feedback
 						input#username.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
-						span.fa.fa-user
+						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input#password.form-control(type='password', placeholder="#{__('password')}")
-						span.fa.fa-lock
+						span.fa.fa-lock.form-control-feedback
 					.checkbox.pull-left
 						label
 							input#remember(type='checkbox')
@@ -42,33 +42,33 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 					.clearfix
 
 				form.ng-hide(name='formRegister', ng-cloak, ng-show="action == 'register'")
-					.form-group.has-feedback
-						input#username.form-control(type='text', placeholder="#{__('username')}", ng-minlength=2)
-						span.fa.fa-user
-					.form-group.has-feedback
-						input#mobile.form-control(type='text', placeholder="#{__('Mobile Phone Number')}", ng-pattern="/^\d+$/", ng-minlength=9, ng-maxlength=10, required)
-						span.fa.fa-phone-square
-					.form-group.has-feedback
-						input#email.form-control(name='email', type='email', placeholder="#{__('email')}", ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", required)
-						span.fa.fa-envelope
-					.form-group.has-feedback
-						input#password.form-control(type='password', placeholder="#{__('password')}")
-						span.fa.fa-lock
-					.form-group.has-feedback
-						input#password2.form-control(type='password', placeholder="#{__('retype password')}")
-						span.fa.fa-lock
+					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.username.$error.pattern }")
+						input#username.form-control(name='username', ng-model="user.username", type='text', placeholder="#{__('username')}", ng-pattern="/^[a-z0-9_-]{3,32}$/", required, maxlength="36")
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.mobile.$error.pattern }")
+						input#mobile.form-control(name='mobile', ng-model="user.mobile", type='text', placeholder="#{__('Mobile Phone Number')}", ng-pattern="/^[0]+([0-9]{8,9})$/", required, maxlength="10")
+						span.fa.fa-phone-square.form-control-feedback
+					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.email.$error.pattern }")
+						input#email.form-control(name='email', ng-model="user.email", type='text', placeholder="#{__('email')}", ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", required)
+						span.fa.fa-envelope.form-control-feedback
+					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.password.$viewValue != formRegister.password2.$viewValue }")
+						input#password.form-control(name='password', ng-model="user.password", type='password', placeholder="#{__('password')}", required)
+						span.fa.fa-lock.form-control-feedback
+					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.password.$viewValue != formRegister.password2.$viewValue }")
+						input#password2.form-control(name='password2', ng-model="user.password2", type='password', placeholder="#{__('retype password')}", required)
+						span.fa.fa-lock.form-control-feedback
 					.clearfix
 
 				form.ng-hide(ng-cloak, ng-show="action == 'forgot'")
 					.form-group.has-feedback
 						input#username.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
-						span.fa.fa-user
+						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input#question.form-control(type='text', placeholder="#{__('Question')}")
-						span.fa.fa-question-circle
+						span.fa.fa-question-circle.form-control-feedback
 					.form-group.has-feedback
 						input#answer.form-control(type='text', placeholder="#{__('Answer')}")
-						span.fa.fa-quote-right
+						span.fa.fa-quote-right.form-control-feedback
 					.clearfix
 
 				.footer
@@ -80,18 +80,9 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 							img.loading.top-2(src='/images/icons/loading.gif', alt='loading')
 							span.msg-detail
 					button#btn-login.btn.bg-light-blue.btn-block(type='button', ng-hide="action != 'login'") #{__('Sign in')}
-					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'register'", ng-disabled="formRegister.email.$valid") #{__('Create account')}
+					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', disabled, ng-cloak, ng-hide="action != 'register'", 
+						ng-disabled="formRegister.username.$error.pattern || formRegister.username.$error.required || formRegister.mobile.$error.pattern || formRegister.mobile.$error.required || formRegister.email.$error.pattern || formRegister.password.$error.required || formRegister.password2.$error.required || formRegister.password.$viewValue != formRegister.password2.$viewValue") #{__('Create account')}
 					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'forgot'") ตรวจสอบ
-					p
-						tt formRegister.email.$valid = {{formRegister.email.$valid}}
-						br
-						tt formRegister.email.$error = {{formRegister.email.$error}}
-						br
-						tt formRegister.$valid = {{formRegister.$valid}}
-						br
-						tt formRegister.$error.requiredd = {{formRegister.$error.required}}
-						br
-						tt formRegister.$error.email = {{formRegister.$error.email}}
 					p.ng-hide(ng-cloak, ng-hide="action == 'login'")
 						a(href='javascript:', ng-click="action = 'login'") #{__('Sign in')}
 					p(ng-hide="action == 'register'")
