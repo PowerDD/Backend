@@ -21,7 +21,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 				form(ng-show="action == 'login'")
 					.form-group.has-feedback
 						input.form-control(type='text', placeholder="#{__('username')}")
-						span.fa.fa-envelope.form-control-feedback
+						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input.form-control(type='password', placeholder="#{__('password')}")
 						span.fa.fa-lock.form-control-feedback
@@ -61,7 +61,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 
 				form.ng-hide(ng-cloak, ng-show="action == 'forgot'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder='Username or Mobile Number or Email')
+						input.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input.form-control(type='text', placeholder="#{__('Question')}")
