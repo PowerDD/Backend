@@ -1,7 +1,7 @@
 doctype html
 html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 	head
-		title #{__('Sign in')} - บัญชี PowerDD | Backend System
+		title #{__('Sign in')} | PowerDD Backend System
 		meta(charset='utf-8')
 		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
 		link(rel='stylesheet', href='//src.powerdd.com/libs/bootstrap/3.3.5/css/bootstrap.min.css')
@@ -46,7 +46,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 						input.form-control(type='text', placeholder="#{__('username')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder='Mobile Number')
+						input.form-control(type='text', placeholder="#{__('Mobile Phone Number')}")
 						span.fa.fa-phone-square.form-control-feedback
 					.form-group.has-feedback
 						input.form-control(type='email', placeholder="#{__('email')}")
@@ -64,10 +64,10 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 						input.form-control(type='text', placeholder='Username or Mobile Number or Email')
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder='Question')
+						input.form-control(type='text', placeholder="#{__('Question')}")
 						span.fa.fa-question-circle.form-control-feedback
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder='Answer')
+						input.form-control(type='text', placeholder="#{__('Answer')}")
 						span.fa.fa-quote-right.form-control-feedback
 					.clearfix
 
