@@ -83,7 +83,15 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 					button#btn-register.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'register'", ng-disabled="formRegister.email.$valid") #{__('Create account')}
 					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'forgot'") ตรวจสอบ
 					p
-						|  {{formRegister.email.$valid}}
+						tt formRegister.email.$valid = {{formRegister.email.$valid}}
+						br
+						tt formRegister.email.$error = {{formRegister.email.$error}}
+						br
+						tt formRegister.$valid = {{formRegister.$valid}}
+						br
+						tt formRegister.$error.requiredd = {{formRegister.$error.required}}
+						br
+						tt formRegister.$error.email = {{formRegister.$error.email}}
 					p.ng-hide(ng-cloak, ng-hide="action == 'login'")
 						a(href='javascript:', ng-click="action = 'login'") #{__('Sign in')}
 					p(ng-hide="action == 'register'")
