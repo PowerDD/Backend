@@ -46,10 +46,10 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 						input#username.form-control(type='text', placeholder="#{__('username')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
-						input#mobile.form-control(type='text', placeholder="#{__('Mobile Phone Number')}")
+						input#mobile.form-control(type='text', placeholder="#{__('Mobile Phone Number')}", ng-minlength=9, ng-maxlength=10, required)
 						span.fa.fa-phone-square.form-control-feedback
 					.form-group.has-feedback
-						input#email.form-control(type='email', placeholder="#{__('email')}")
+						input#email.form-control(type='email', placeholder="#{__('email')}", ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", required)
 						span.fa.fa-envelope.form-control-feedback
 					.form-group.has-feedback
 						input#password.form-control(type='password', placeholder="#{__('password')}")
