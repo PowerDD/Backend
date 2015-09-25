@@ -20,7 +20,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'forgot'") #{__('Forgot password')}
 				form(ng-show="action == 'login'")
 					.form-group.has-feedback
-						input.form-control(type='text', placeholder="#{__('username')}")
+						input.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback
 						input.form-control(type='password', placeholder="#{__('password')}")
@@ -36,9 +36,9 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 							span.caret
 						ul.dropdown-menu
 							li(class="#{data.language == 'th' ? 'active' : ''}")
-								a(href="#{data.language == 'th' ? 'javascript:void(0)' : '/language/th'}") ภาษาไทย
+								a(href="#{data.language == 'th' ? 'javascript:void(0)' : '/language/th'}") #{__('languageThai')}
 							li(class="#{data.language == 'en' ? 'active' : ''}")
-								a(href="#{data.language == 'en' ? 'javascript:void(0)' : '/language/en'}") English
+								a(href="#{data.language == 'en' ? 'javascript:void(0)' : '/language/en'}") #{__('languageEnglish')}
 					.clearfix
 
 				form.ng-hide(ng-cloak, ng-show="action == 'register'")
