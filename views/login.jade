@@ -1,7 +1,7 @@
 doctype html
 html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 	head
-		title #{__('Sign in')} บัญชี PowerDD | Backend System
+		title #{__('Sign in')} - บัญชี PowerDD | Backend System
 		meta(charset='utf-8')
 		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
 		link(rel='stylesheet', href='//src.powerdd.com/libs/bootstrap/3.3.5/css/bootstrap.min.css')
@@ -15,7 +15,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'")
 		.login-box
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
-					h3.box-title #{__('Sign in')}
+					h3.box-title(ng-show="action == 'login'") #{__('Sign in')}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'register'") #{__('Create account')}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'forgot'") #{__('Forgot password')}
 				form(ng-show="action == 'login'")
