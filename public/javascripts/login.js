@@ -34,14 +34,13 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.registerSuccess = true;
-				/*setTimeout(function() {
+				setTimeout(function() {
 					$scope.action = 'login';
-				}, 2000);*/
+				}, 2000);
 			}
 			else {
 				$scope.hasError = true;
 				$scope.error = data.error;
-				$scope.errorDetail = data.errorMessage;
 			}
          })
 		.error(function (data, status, headers, config) {
