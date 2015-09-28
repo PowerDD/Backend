@@ -34,6 +34,9 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.registerSuccess = true;
+				setTimeout(function() {
+					$scope.action = 'login';
+				}, 2000);
 			}
 			else {
 				$scope.hasError = true;
