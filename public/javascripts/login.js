@@ -21,11 +21,14 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 
 	$scope.register = function() {
 		$scope.hasError = false;
+		var json = {};
+		json.username = $scope.formRegister.username.$viewValue;
+		json.password = $scope.formRegister.password.$viewValue;
+		json.mobile = $scope.formRegister.mobile.$viewValue;
+		json.email = $scope.formRegister.email.$viewValue;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
-			username:$scope.formRegister.username.$viewValue, 
-			password:$scope.formRegister.password.$viewValue, 
-			mobile:$scope.formRegister.mobile.$viewValue, 
-			email:$scope.formRegister.email.$viewValue 
+			type:'web',
+			json: JSON.stringify(json)
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
 		.success(function (data) {
@@ -42,23 +45,4 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		 });
 	}
 
-});
-
-app.directive('numericOnly', function(){
-    return {
-        require: 'ngModel',
-        link: function(scope, element, attrs, modelCtrl) {
-
-            modelCtrl.$parsers.push(function (inputValue) {
-                var transformedInput = inputValue ? inputValue.replace(/[^\d.-]/g,'') : null;
-
-                if (transformedInput!=inputValue) {
-                    modelCtrl.$setViewValue(transformedInput);
-                    modelCtrl.$render();
-                }
-
-                return transformedInput;
-            });
-        }
-    };
 });
