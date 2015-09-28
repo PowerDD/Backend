@@ -39,7 +39,6 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 				$scope.hasError = true;
 				$scope.error = data.error;
 				$scope.errorDetail = data.errorMessage;
-				$scope.formRegister.slideUp;
 			}
          })
 		.error(function (data, status, headers, config) {
