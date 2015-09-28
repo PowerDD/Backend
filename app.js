@@ -9,6 +9,7 @@ var http = require('http')
 	, routes = require('./routes')
 	, i18n = require('i18n')	
 	, cookieParser = require('cookie-parser')
+	, compress = require('compression')
 
 global.config = require('./config.js');
 	
@@ -26,9 +27,10 @@ app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 365 * 24 * 60 * 60 * 1000 }));
 app.use(i18n.init);
 app.use(cookieParser(config.cookieSecret));
+app.use(compress());
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
