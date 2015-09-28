@@ -46,7 +46,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 						input#username.form-control(name='username', ng-model="user.username", type='text', placeholder="#{__('username')}", ng-pattern="/^[A-Za-z0-9_-]{3,32}$/", required, maxlength="36")
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.mobile.$error.pattern }")
-						input#mobile.form-control(name='mobile', ng-model="user.mobile", type='text', placeholder="#{__('Mobile Phone Number')}", ng-pattern="/^[0]+([0-9]{8,9})$/", required, maxlength="10")
+						input#mobile.form-control(name='mobile', ng-model="user.mobile", type='text', placeholder="#{__('Mobile Phone Number')}", ng-pattern="/^[0]+([0-9]{8,9})$/", required, maxlength="10", numericOnly)
 						span.fa.fa-phone-square.form-control-feedback
 					.form-group.has-feedback(ng-class="{ 'has-error' : formRegister.email.$error.pattern }")
 						input#email.form-control(name='email', ng-model="user.email", type='text', placeholder="#{__('email')}", ng-pattern="/^[_A-Za-z0-9]+(\.[_A-Za-z0-9]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[a-z]{2,4})$/", required)
