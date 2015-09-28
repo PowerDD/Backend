@@ -28,7 +28,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		json.email = $scope.formRegister.email.$viewValue;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
 			type:'Web',
-			json: JSON.stringify(json)
+			value: JSON.stringify(json)
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
 		.success(function (data) {
