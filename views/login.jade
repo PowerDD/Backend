@@ -76,6 +76,9 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 					.text-red.ng-hide(ng-cloak, ng-show="hasError == true")
 						h4.margin-top-0 {{errorHeader}}
 						p {{errorDetail}}
+						p.text-red.ng-hide(ng-cloak, ng-show="error == 'MBR0031'") #{__('Username already exists')}
+						p.text-red.ng-hide(ng-cloak, ng-show="error == 'MBR0051'") #{__('Mobile phone number already exists')}
+						p.text-red.ng-hide(ng-cloak, ng-show="error == 'MBR0061'") #{__('Email already exists')}
 
 					#dv-info.callout.callout-info.margin-bottom-0.hidden
 						h4

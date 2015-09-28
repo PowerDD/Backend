@@ -308,5 +308,9 @@
 	"Mobile Phone Number": "Mobile Phone Number",
 	"Question": "Question",
 	"Answer": "Answer",
-	"or": "or"
+	"or": "or",
+	"Username already exists": "Username already exists",
+	"Shop does not exist": "Shop does not exist",
+	"Mobile phone number already exists": "Mobile phone number already exists",
+	"Email already exists": "Email already exists"
 }

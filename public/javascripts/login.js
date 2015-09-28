@@ -36,7 +36,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 			}
 			else {
 				$scope.hasError = true;
-				$scope.errorHeader = data.error;
+				$scope.error = data.error;
 				$scope.errorDetail = data.errorMessage;
 			}
          })
