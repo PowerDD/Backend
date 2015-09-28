@@ -23,9 +23,9 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		$scope.hasError = false;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
 			username:$scope.formRegister.username.$viewValue, 
-			password:$scope.formLogin.password.$viewValue, 
-			mobile:$scope.formLogin.mobile.$viewValue, 
-			email:$scope.formLogin.email.$viewValue 
+			password:$scope.formRegister.password.$viewValue, 
+			mobile:$scope.formRegister.mobile.$viewValue, 
+			email:$scope.formRegister.email.$viewValue 
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
 		.success(function (data) {
