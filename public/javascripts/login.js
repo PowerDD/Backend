@@ -1,15 +1,10 @@
 var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
-	$scope.checkLogin = function() {
+	$scope.login = function() {
 		$scope.hasError = false;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, username:$scope.formLogin.username.$viewValue, password:$scope.formLogin.password.$viewValue });
-		$http({
-			method: 'POST',
-			url: $scope.apiUrl+'/member/login',
-			data: param,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		})
+		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/login' })
 		.success(function (data) {
 			if ( data.success ){
 			}
@@ -18,10 +13,33 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 				$scope.errorHeader = data.error;
 				$scope.errorDetail = data.errorMessage;
 			}
-			console.log(data.success);
          })
 		.error(function (data, status, headers, config) {
 			 console.log(data);
 		 });
 	}
+
+	$scope.register = function() {
+		$scope.hasError = false;
+		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
+			username:$scope.formRegister.username.$viewValue, 
+			password:$scope.formLogin.password.$viewValue, 
+			mobile:$scope.formLogin.mobile.$viewValue, 
+			email:$scope.formLogin.email.$viewValue 
+		});
+		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
+		.success(function (data) {
+			if ( data.success ){
+			}
+			else {
+				$scope.hasError = true;
+				$scope.errorHeader = data.error;
+				$scope.errorDetail = data.errorMessage;
+			}
+         })
+		.error(function (data, status, headers, config) {
+			 console.log(data);
+		 });
+	}
+
 });
