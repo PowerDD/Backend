@@ -83,6 +83,9 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 						p.text-red.ng-hide(ng-cloak, ng-show="error == 'MBR0061'") 
 							i.fa.fa-warning  
 							|  #{__('Email already exists')}
+						p.text-green.ng-hide(ng-cloak, ng-show="registerSuccess == true") 
+							i.fa.fa-check-circle  
+							|  #{__('Registration Successful')}
 
 					#dv-info.callout.callout-info.margin-bottom-0.hidden
 						h4

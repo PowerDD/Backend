@@ -314,5 +314,6 @@
 	"Username already exists": "มีชื่อผู้ใช้นี้ในระบบแล้วค่ะ",
 	"Shop does not exist": "ไม่มีรหัสร้านค้านี้ในระบบค่ะ",
 	"Mobile phone number already exists": "มีเบอร์โทรศัพท์นี้ในระบบแล้วค่ะ",
-	"Email already exists": "มีอีเมลนี้ในระบบแล้วค่ะ"
+	"Email already exists": "มีอีเมลนี้ในระบบแล้วค่ะ",
+	"Registration Successful": "สมัครสมาชิกเรียบร้อยแล้วค่ะ"
 }

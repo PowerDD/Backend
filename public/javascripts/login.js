@@ -33,11 +33,13 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
 		.success(function (data) {
 			if ( data.success ){
+				$scope.registerSuccess = true;
 			}
 			else {
 				$scope.hasError = true;
 				$scope.error = data.error;
 				$scope.errorDetail = data.errorMessage;
+				$scope.formRegister.slideUp();
 			}
          })
 		.error(function (data, status, headers, config) {
