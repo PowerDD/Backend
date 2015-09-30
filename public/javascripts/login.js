@@ -7,7 +7,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/login' })
 		.success(function (data) {
 			if ( data.success ){
-				$scope.registerSuccess = true;
+				$scope.loginSuccess = true;
 			}
 			else {
 				$scope.hasError = true;
@@ -34,7 +34,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.registerSuccess = true;
-					$scope.action = 'login';
+				$scope.action = 'login';
 			}
 			else {
 				$scope.hasError = true;
