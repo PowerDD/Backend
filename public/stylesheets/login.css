@@ -28,3 +28,13 @@ button.btn-block { margin-bottom: 10px; }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+.fade-in-out {
+  transition: 0.5s linear all;  
+  opacity: 1;
+}
+
+.fade-in-out.ng-hide {
+  transition: 0.5s linear all;  
+  opacity: 0;
+}

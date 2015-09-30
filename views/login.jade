@@ -73,7 +73,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 
 				.footer
 					
-					.text-center.ng-hide(ng-cloak, ng-show="hasError == true")
+					.text-center.ng-hide.fade-in-out(ng-cloak, ng-show="hasError == true")
 						p.text-red.ng-hide(ng-cloak, ng-show="error == 'MBR0031'") 
 							i.fa.fa-warning  
 							|  #{__('Username already exists')}
@@ -84,7 +84,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 							i.fa.fa-warning  
 							|  #{__('Email already exists')}
 
-					.text-center.text-green.ng-hide(ng-cloak, ng-show="registerSuccess == true")
+					.text-center.text-green.ng-hide.fade-in-out(ng-cloak, ng-show="registerSuccess == true")
 						p
 							i.fa.fa-check-circle  
 							|  #{__('Registration Successful')}
@@ -102,9 +102,9 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 
 					p.ng-hide(ng-cloak, ng-hide="action == 'login'")
 						a(href='javascript:', ng-click="action = 'login'") #{__('Sign in')}
-					p(ng-hide="action == 'register'")
+					p(ng-hide="action == 'register' || registerSuccess == true")
 						a(href='javascript:', ng-click="action = 'register'") #{__('Create account')}
-					p(ng-hide="action == 'forgot'")
+					p(ng-hide="action == 'forgot' || registerSuccess == true")
 						a(href='javascript:', ng-click="action = 'forgot'") #{__('Forgot password')}
 
 		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
