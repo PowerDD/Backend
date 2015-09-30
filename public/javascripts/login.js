@@ -1,4 +1,4 @@
-var app = angular.module('PowerDD', []);
+var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 	$scope.login = function() {
@@ -8,7 +8,6 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.loginSuccess = true;
-				setLoginCookie($scope.formLogin.username.$viewValue);
 			}
 			else {
 				$scope.hasError = true;
@@ -48,7 +47,3 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 	}
 
 });
-
-function setLoginCookie(username){
-	Cookies.set('username', username, { expires: 365, secure: true });
-}
