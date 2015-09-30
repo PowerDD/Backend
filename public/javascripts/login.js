@@ -2,9 +2,12 @@ var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 
-	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', url: $scope.apiUrl+'/ip/118.174.101.81' })
+	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', url: $scope.apiUrl+'/ip/'+$scope.ip })
 	.success(function (data) {
-		 console.log(data);
+		delete data.region;
+		delete data.regionName;
+		delete data.status;
+		$scope.ip = JSON.stringify(data);
 	 })
 	.error(function (data, status, headers, config) {
 		 console.log(data);
@@ -16,7 +19,8 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
 			username:$scope.formLogin.username.$viewValue,
 			password:$scope.formLogin.password.$viewValue, 
-			remember:$scope.formLogin.remember.$viewValue ? 1 : 0
+			remember:$scope.formLogin.remember.$viewValue ? 1 : 0,
+			geo: $scope.ip
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/login' })
 		.success(function (data) {
@@ -49,7 +53,8 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		json.email = $scope.formRegister.email.$viewValue;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
 			type:'Web',
-			value: JSON.stringify(json)
+			value: JSON.stringify(json),
+			geo: $scope.ip
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/register' })
 		.success(function (data) {

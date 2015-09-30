@@ -60,6 +60,7 @@ app.get('*', function(req, res) {
 		data.language = req.cookies.language;
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th_Th';
+		data.ip = req.headers['x-forwarded-for'];
 
 		if ( data.screen != 'login' ) {
 			if ( url.length >= 1 ) {
