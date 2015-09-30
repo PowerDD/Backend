@@ -3,7 +3,11 @@ var app = angular.module('PowerDD', ['ngStorage']);
 app.controller('Auth', function($scope, $http, $localStorage) {
 	$scope.login = function() {
 		$scope.hasError = false;
-		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, username:$scope.formLogin.username.$viewValue, password:$scope.formLogin.password.$viewValue });
+		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
+			username:$scope.formLogin.username.$viewValue,
+			password:$scope.formLogin.password.$viewValue, 
+			remember:$scope.formLogin.remember ? 1 : 0
+		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/login' })
 		.success(function (data) {
 			if ( data.success ){
