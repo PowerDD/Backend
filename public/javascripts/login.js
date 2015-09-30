@@ -1,4 +1,4 @@
-var app = angular.module('PowerDD', ['ngStorage']);
+var app = angular.module('PowerDD', []);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 	$scope.login = function() {
