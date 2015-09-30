@@ -7,7 +7,10 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		delete data.region;
 		delete data.regionName;
 		delete data.status;
-		$scope.ip = JSON.stringify(data);
+		$scope.ip = JSON.stringify(data);		
+		var param = $.param({data: $scope.ip});
+		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/geoip/update' })
+
 	 })
 	.error(function (data, status, headers, config) {
 		 console.log(data);
