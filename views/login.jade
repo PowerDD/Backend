@@ -15,7 +15,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 		.login-box
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
-					h3.box-title(ng-show="action == 'login'") #{__('Sign in')}
+					h3.box-title(ng-show="action == 'login'") #{__('Sign in')} {{user.remember}}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'register'") #{__('Create account')}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'forgot'") #{__('Forgot password')}
 				form(name='formLogin', ng-show="action == 'login'")
@@ -27,7 +27,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 						span.fa.fa-lock.form-control-feedback
 					.checkbox.pull-left
 						label
-							input#remember(type='checkbox', ng-disabled="loginSuccess == true")
+							input#remember(name='remember', ng-model="user.remember", type='checkbox', ng-disabled="loginSuccess == true")
 							|  #{__('Stay signed in')}
 					.btn-group.pull-right
 						span.btn.dropdown-toggle(data-toggle='dropdown')
