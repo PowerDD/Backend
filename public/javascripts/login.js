@@ -8,7 +8,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.loginSuccess = true;
-				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
+				setLoginCookie($scope.formLogin.username.$viewValue);
 			}
 			else {
 				$scope.hasError = true;
@@ -48,3 +48,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 	}
 
 });
+
+function setLoginCookie(username){
+	Cookies.set('username', username, { expires: 365, secure: true });
+}
