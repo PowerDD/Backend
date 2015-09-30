@@ -6,7 +6,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
 			username:$scope.formLogin.username.$viewValue,
 			password:$scope.formLogin.password.$viewValue, 
-			remember:$scope.formLogin.remember ? 1 : 0
+			remember:$scope.formLogin.remember.$viewValue ? 1 : 0
 		});
 		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/member/login' })
 		.success(function (data) {
