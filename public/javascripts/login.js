@@ -2,7 +2,7 @@ var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 
-	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', data: param, url: $scope.apiUrl+'/ip/118.174.101.81' })
+	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', url: $scope.apiUrl+'/ip/118.174.101.81' })
 	.success(function (data) {
 		 console.log(data);
 	 })
