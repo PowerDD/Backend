@@ -1,6 +1,16 @@
 var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
+
+	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', data: param, url: $scope.apiUrl+'/ip/118.174.101.81' })
+	.success(function (data) {
+		 console.log(data);
+	 })
+	.error(function (data, status, headers, config) {
+		 console.log(data);
+	 });
+
+
 	$scope.login = function() {
 		$scope.hasError = false;
 		var param = $.param({apiKey: $scope.apiKey, shop: $scope.shop, 
@@ -12,7 +22,12 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		.success(function (data) {
 			if ( data.success ){
 				$scope.loginSuccess = true;
-				Cookies.set('memberKey', data.result, { expires: 365, secure: true });
+				if ($scope.formLogin.remember.$viewValue) {
+					Cookies.set('memberKey', data.result, { expires: 365, secure: true });
+				}
+				else {
+					Cookies.set('memberKey', data.result, { secure: true });
+				}
 				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
 			}
 			else {
