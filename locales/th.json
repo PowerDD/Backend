@@ -316,5 +316,6 @@
 	"Mobile phone number already exists": "มีเบอร์โทรศัพท์นี้ในระบบแล้วค่ะ",
 	"Email already exists": "มีอีเมลนี้ในระบบแล้วค่ะ",
 	"Registration Successful": "สมัครสมาชิกเรียบร้อยแล้วค่ะ",
-	"Invalid Username or Password": "ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้องค่ะ"
+	"Invalid Username or Password": "ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้องค่ะ",
+	"You have logged in successfully": "กำลังเข้าสู่ระบบกรุณารอสักครู่ค่ะ"
 }

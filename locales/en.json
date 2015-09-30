@@ -314,5 +314,6 @@
 	"Mobile phone number already exists": "Mobile phone number already exists",
 	"Email already exists": "Email already exists",
 	"Registration Successful": "Registration Successful",
-	"Invalid Username or Password": "Invalid Username or Password"
+	"Invalid Username or Password": "Invalid Username or Password",
+	"You have logged in successfully": "You have logged in successfully"
 }

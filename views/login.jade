@@ -87,10 +87,13 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 							i.fa.fa-warning  
 							|  #{__('Invalid Username or Password')}
 
-					.text-center.text-green.ng-hide.fade-in-out(ng-cloak, ng-show="registerSuccess == true")
-						p
+					.text-center.text-green.ng-hide.fade-in-out(ng-cloak, ng-show="registerSuccess == true || loginSuccess == true")
+						p(ng-show="registerSuccess == true")
 							i.fa.fa-check-circle  
 							|  #{__('Registration Successful')}
+						p(ng-show="loginSuccess == true")
+							i.fa.fa-check-circle  
+							|  #{__('You have logged in successfully')}
 
 					#dv-info.callout.callout-info.margin-bottom-0.hidden
 						h4
