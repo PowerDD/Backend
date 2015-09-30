@@ -313,5 +313,6 @@
 	"Shop does not exist": "Shop does not exist",
 	"Mobile phone number already exists": "Mobile phone number already exists",
 	"Email already exists": "Email already exists",
-	"Registration Successful": "Registration Successful"
+	"Registration Successful": "Registration Successful",
+	"Invalid Username or Password": "Invalid Username or Password"
 }
