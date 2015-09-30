@@ -23,7 +23,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 						input.form-control(name='username', ng-model="user.username", type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}", required)
 						span.fa.fa-user.form-control-feedback
 					.form-group.has-feedback(ng-class="{ 'has-error' : formLogin.password.$error.$viewValue == '' }")
-						input.form-control(name='password', ng-model="user.password", type='password', placeholder="#{__('password')}", required)
+						input.form-control(name='password', ng-model="user.password", type='password', placeholder="#{__('password')}", required, ng-keypress="login()")
 						span.fa.fa-lock.form-control-feedback
 					.checkbox.pull-left
 						label
