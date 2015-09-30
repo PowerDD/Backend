@@ -15,7 +15,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 		.login-box
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
-					h3.box-title(ng-show="action == 'login'") #{__('Sign in')} {{user.remember}}
+					h3.box-title(ng-show="action == 'login'") #{__('Sign in')} {{formLogin.remember}}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'register'") #{__('Create account')}
 					h3.box-title.ng-hide(ng-cloak, ng-show="action == 'forgot'") #{__('Forgot password')}
 				form(name='formLogin', ng-show="action == 'login'")
