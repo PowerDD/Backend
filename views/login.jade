@@ -101,7 +101,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 							span.msg-header สถานะการทำงาน
 						p
 							span.msg-detail
-					button.btn.bg-light-blue.btn-block(type='button', disabled, ng-hide="action != 'login", ng-click="login()", ng-disabled="formLogin.username.$error.required || formLogin.password.$error.required") #{__('Sign in')}
+					button.btn.bg-light-blue.btn-block(type='button', disabled, ng-hide="action != 'login' || loginSuccess == true", ng-click="login()", ng-disabled="formLogin.username.$error.required || formLogin.password.$error.required") #{__('Sign in')}
 					button.btn.bg-light-blue.btn-block.ng-hide(type='button', disabled, ng-cloak, ng-hide="action != 'register' || registerSuccess == true", ng-click="register()", 
 						ng-disabled="formRegister.username.$error.pattern || formRegister.username.$error.required || formRegister.mobile.$error.pattern || formRegister.mobile.$error.required || formRegister.email.$error.pattern || formRegister.password.$error.required || formRegister.password2.$error.required || formRegister.password.$viewValue != formRegister.password2.$viewValue") #{__('Create account')}
 					button#btn-check.btn.bg-light-blue.btn-block.ng-hide(type='button', ng-cloak, ng-hide="action != 'forgot'") ตรวจสอบ
