@@ -2,6 +2,9 @@ var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 
+	var ip = $scope.ip.split(',');
+	$scope.ip = ip[0];
+
 	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', url: $scope.apiUrl+'/ip/'+$scope.ip })
 	.success(function (data) {
 		delete data.region;
