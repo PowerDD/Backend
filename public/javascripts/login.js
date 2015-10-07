@@ -35,7 +35,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 				}
 				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
 
-				var param = $.param({apiKey: $scope.apiKey, memberKey: data.memberKey, ipAddress: $scope.ip, browser: $scope.ip, version: $scope.ip, platform: $scope.ip, os: $scope.ip, deviceType: $scope.ip});
+				var param = $.param({apiKey: $scope.apiKey, memberKey: data.memberKey, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType});
 				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
 
 			}
