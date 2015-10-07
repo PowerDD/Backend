@@ -2,9 +2,6 @@ var app = angular.module('PowerDD', ['ngStorage']);
 
 app.controller('Auth', function($scope, $http, $localStorage) {
 
-	var ip = $scope.ip.split(',');
-	$scope.ip = ip[0];
-
 	$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'GET', url: $scope.apiUrl+'/ip/'+$scope.ip })
 	.success(function (data) {
 		delete data.region;
@@ -37,13 +34,16 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 				}
 				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
 
-				var param = $.param({apiKey: $scope.apiKey, memberKey: data.result, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType});
+				var param = $.param({apiKey: $scope.apiKey, memberKey: data.result, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType, success: 1, failedCount: $scope.failedCount});
 				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
 
 			}
 			else {
 				$scope.hasError = true;
 				$scope.error = data.error;
+				$scope.failedCount++;
+				var param = $.param({apiKey: $scope.apiKey, memberKey: data.result, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType, success: 0, failedCount: $scope.failedCount});
+				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
 			}
          })
 		.error(function (data, status, headers, config) {
