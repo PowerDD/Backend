@@ -7,10 +7,9 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 		delete data.region;
 		delete data.regionName;
 		delete data.status;
-		$scope.ip = JSON.stringify(data);		
+		$scope.ip = JSON.stringify(data);
 		var param = $.param({apiKey: $scope.apiKey, data: $scope.ip});
-		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/geoip/update' })
-
+		$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/geoip/update' });
 	 })
 	.error(function (data, status, headers, config) {
 		 console.log(data);
@@ -35,6 +34,10 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 					Cookies.set('memberKey', data.result, { secure: true });
 				}
 				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
+
+				var param = $.param({apiKey: $scope.apiKey, memberKey: data.memberKey, ipAddress: $scope.ip, browser: $scope.ip, version: $scope.ip, platform: $scope.ip, os: $scope.ip, deviceType: $scope.ip});
+				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
+
 			}
 			else {
 				$scope.hasError = true;

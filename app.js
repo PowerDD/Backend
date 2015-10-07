@@ -10,6 +10,7 @@ var http = require('http')
 	, i18n = require('i18n')	
 	, cookieParser = require('cookie-parser')
 	, compress = require('compression')
+	, useragent = require('express-useragent')
 
 global.config = require('./config.js');
 	
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 365 * 24 * 60 *
 app.use(i18n.init);
 app.use(cookieParser(config.cookieSecret));
 app.use(compress());
+app.use(useragent.express());
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
@@ -61,6 +63,23 @@ app.get('*', function(req, res) {
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th_Th';
 		data.ip = req.headers['x-forwarded-for'];
+		data.browser = req.useragent.browser;
+		data.version = req.useragent.version;
+		data.platform = req.useragent.platform;
+		data.os = req.useragent.os;
+		if (req.useragent.isMobile) data.deviceType = 'Mobile';
+		else if (req.useragent.isTablet) data.deviceType = 'Tablet';
+		else if (req.useragent.isiPad) data.deviceType = 'iPad';
+		else if (req.useragent.isiPod) data.deviceType = 'iPod';
+		else if (req.useragent.isiPhone) data.deviceType = 'iPhone';
+		else if (req.useragent.isBlackberry) data.deviceType = 'Blackberry';
+		else if (req.useragent.isAndroidTablet) data.deviceType = 'Android Tablet';
+		else if (req.useragent.isAndroid) data.deviceType = 'Android';
+		else if (req.useragent.isDesktop) data.deviceType = 'Desktop';
+		else if (req.useragent.isRaspberry) data.deviceType = 'Raspberry Pi';
+		else if (req.useragent.isBot) data.deviceType = 'Bot';
+		else if (req.useragent.isCurl) data.deviceType = 'Curl';
+		else data.deviceType = '';
 
 		if ( data.screen != 'login' ) {
 			if ( url.length >= 1 ) {
