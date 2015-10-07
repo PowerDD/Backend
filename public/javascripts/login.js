@@ -42,7 +42,7 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 				$scope.hasError = true;
 				$scope.error = data.error;
 				$scope.failedCount++;
-				var param = $.param({apiKey: $scope.apiKey, memberKey: data.result, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType, success: 0, failedCount: $scope.failedCount});
+				var param = $.param({apiKey: $scope.apiKey, memberKey: $scope.formLogin.username, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType, success: 0, failedCount: $scope.failedCount});
 				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
 			}
          })
