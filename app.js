@@ -62,7 +62,8 @@ app.get('*', function(req, res) {
 		data.language = req.cookies.language;
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th_Th';
-		data.ip = req.headers['x-forwarded-for'];
+		var ip = req.headers['x-forwarded-for'].split(',');
+		data.ip = ip[0];
 		data.browser = req.useragent.browser;
 		data.version = req.useragent.version;
 		data.platform = req.useragent.platform;
