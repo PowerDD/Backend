@@ -60,8 +60,9 @@ app.get('*', function(req, res) {
 		data = {};
 		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login' : 'index';
 		data.language = req.cookies.language;
+		console.log(req.cookies);
 		data.memberInfo = {};
-		data.memberInfo.locale = 'th_Th';
+		data.memberInfo.locale = 'th';
 		var ip = req.headers['x-forwarded-for'].split(',');
 		data.ip = ip[0];
 		data.browser = req.useragent.browser;
