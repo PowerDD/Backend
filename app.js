@@ -60,7 +60,6 @@ app.get('*', function(req, res) {
 		data = {};
 		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login' : 'index';
 		data.language = req.cookies.language;
-		console.log(req.cookies);
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th';
 		var ip = req.headers['x-forwarded-for'].split(',');
@@ -83,7 +82,37 @@ app.get('*', function(req, res) {
 		else if (req.useragent.isCurl) data.deviceType = 'Curl';
 		else data.deviceType = '';
 
-		if ( data.screen != 'login' ) {
+		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
+			var request = require('request');
+			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
+				form: 	{ apiKey: config.apiKey,
+					memberKey: req.cookies.memberKey,
+					ip: data.ip,
+					browser: data.browser,
+					version: data.version,
+					platform: data.platform,
+					os: data.os,
+					deviceType: data.deviceType
+				} },
+			function (error, response, body) {
+				if (!error) {					
+					data.json = JSON.parse(body);
+					if(data.json.success){
+						data.screen = 'index';
+						//console.log(data.json);
+					}
+					else{
+						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
+					}
+				}
+				else {
+					data.screen = 'login';
+					console.log(error);
+				}
+				routes.index(req, res, data);
+			});
+		}
+		else if ( data.screen != 'login' ) {
 			if ( url.length >= 1 ) {
 				data.screen = url[0];
 				fs.exists('./views/'+data.screen+'.jade', function (exists) {
@@ -94,9 +123,12 @@ app.get('*', function(req, res) {
 						});
 					}
 				});
+				routes.index(req, res, data);
 			}
 		}
-		routes.index(req, res, data);
+		else {
+			routes.index(req, res, data);
+		}
 	}
 
 });

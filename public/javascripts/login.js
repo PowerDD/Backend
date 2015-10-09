@@ -27,15 +27,18 @@ app.controller('Auth', function($scope, $http, $localStorage) {
 			if ( data.success ){
 				$scope.loginSuccess = true;
 				if ($scope.formLogin.remember.$viewValue) {
-					Cookies.set('memberKey', data.result, { expires: 365, secure: true });
+					Cookies.set('memberKey', data.result, { expires: 365 });
 				}
 				else {
-					Cookies.set('memberKey', data.result, { secure: true });
+					Cookies.set('memberKey', data.result);
 				}
-				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365, secure: true });
+				Cookies.set('username', $scope.formLogin.username.$viewValue, { expires: 365 });
 
 				var param = $.param({apiKey: $scope.apiKey, memberKey: data.result, ipAddress: $scope.ip, browser: $scope.browser, version: $scope.version, platform: $scope.platform, os: $scope.os, deviceType: $scope.deviceType, success: 1, failedCount: $scope.failedCount});
-				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' });
+				$http({headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', data: param, url: $scope.apiUrl+'/webclient/browserInfo/add' })
+				.success(function (data) {
+					location.reload();
+				});
 
 			}
 			else {
