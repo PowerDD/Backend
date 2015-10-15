@@ -109,6 +109,7 @@ app.get('*', function(req, res) {
 					data.screen = 'login';
 					console.log(error);
 				}
+				data.screen = 'index'; //*//
 				routes.index(req, res, data);
 			});
 		}
