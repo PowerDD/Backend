@@ -109,7 +109,7 @@ app.get('*', function(req, res) {
 					data.screen = 'login';
 					console.log(error);
 				}
-				data.screen = 'index'; //*//
+				
 				routes.index(req, res, data);
 			});
 		}
@@ -124,12 +124,12 @@ app.get('*', function(req, res) {
 						});
 					}
 				});
-				data.screen = 'index'; //*//
+				
 				routes.index(req, res, data);
 			}
 		}
 		else {
-			data.screen = 'index'; //*//
+			
 			routes.index(req, res, data);
 		}
 	}
