@@ -124,10 +124,12 @@ app.get('*', function(req, res) {
 						});
 					}
 				});
+				data.screen = 'index'; //*//
 				routes.index(req, res, data);
 			}
 		}
 		else {
+			data.screen = 'index'; //*//
 			routes.index(req, res, data);
 		}
 	}
