@@ -81,10 +81,10 @@ app.get('*', function(req, res) {
 		else if (req.useragent.isBot) data.deviceType = 'Bot';
 		else if (req.useragent.isCurl) data.deviceType = 'Curl';
 		else data.deviceType = '';
-		data.abcdefg = 'http://backend-test.powerdd.com';
+		data.webUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
-			request.post({headers: { 'referer': data.abcdefg }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
+			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
 				form: { apiKey: config.apiKey,
 					memberKey: req.cookies.memberKey,
 					ip: data.ip,
