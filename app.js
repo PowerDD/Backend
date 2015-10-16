@@ -81,11 +81,11 @@ app.get('*', function(req, res) {
 		else if (req.useragent.isBot) data.deviceType = 'Bot';
 		else if (req.useragent.isCurl) data.deviceType = 'Curl';
 		else data.deviceType = '';
-			
+		data.websiteUrl = req.headers.referer;
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
 			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
-				form: 	{ apiKey: config.apiKey,
+				form: { apiKey: config.apiKey,
 					memberKey: req.cookies.memberKey,
 					ip: data.ip,
 					browser: data.browser,
@@ -93,7 +93,8 @@ app.get('*', function(req, res) {
 					platform: data.platform,
 					os: data.os,
 					deviceType: data.deviceType
-				} },
+				} 
+			},
 			function (error, response, body) {
 				if (!error) {					
 					data.json = JSON.parse(body);
