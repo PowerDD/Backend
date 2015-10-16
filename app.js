@@ -84,7 +84,7 @@ app.get('*', function(req, res) {
 		data.webUrl = req.get('host');
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
-			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
+			request.post({headers: { 'referer': data.webUrl }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
 				form: { apiKey: config.apiKey,
 					memberKey: req.cookies.memberKey,
 					ip: data.ip,
