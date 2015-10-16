@@ -99,7 +99,7 @@ app.get('*', function(req, res) {
 					data.json = JSON.parse(body);
 					if(data.json.success){
 						data.screen = 'index';
-						//console.log(data.json);
+						console.log(data.json);
 					}
 					else{
 						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
