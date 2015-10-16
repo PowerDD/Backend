@@ -103,7 +103,7 @@ app.get('*', function(req, res) {
 					}
 					else{
 						data.xxx = JSON.parse(data);
-						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'test' : 'login';
+						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
 					}
 				}
 				else {
