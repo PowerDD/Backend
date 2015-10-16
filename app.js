@@ -81,7 +81,8 @@ app.get('*', function(req, res) {
 		else if (req.useragent.isBot) data.deviceType = 'Bot';
 		else if (req.useragent.isCurl) data.deviceType = 'Curl';
 		else data.deviceType = '';
-
+		
+		data.xxx = JSON.parse(data);
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
 			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
@@ -102,7 +103,7 @@ app.get('*', function(req, res) {
 						//console.log(data.json);
 					}
 					else{
-						data.xxx = JSON.parse(data);
+						
 						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
 					}
 				}
