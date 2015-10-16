@@ -84,7 +84,7 @@ app.get('*', function(req, res) {
 		data.abcdefg = 'http://backend-test.powerdd.com';
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
-			request.post({headers: { 'referer': req.headers.referer }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
+			request.post({headers: { 'referer': data.abcdefg }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
 				form: { apiKey: config.apiKey,
 					memberKey: req.cookies.memberKey,
 					ip: data.ip,
