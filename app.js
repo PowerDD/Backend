@@ -81,7 +81,7 @@ app.get('*', function(req, res) {
 		else if (req.useragent.isBot) data.deviceType = 'Bot';
 		else if (req.useragent.isCurl) data.deviceType = 'Curl';
 		else data.deviceType = '';
-		data.webUrl = req.get('host');
+		data.webUrl = req.protocol + '://' + req.get('host') ;
 		if (typeof req.cookies.memberKey != 'undefined' && req.cookies.memberKey != '') {
 			var request = require('request');
 			request.post({headers: { 'referer': data.webUrl }, url: config.apiUrl + '/member/exist/memberKeyAndBrowser',
