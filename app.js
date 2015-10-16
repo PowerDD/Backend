@@ -102,7 +102,8 @@ app.get('*', function(req, res) {
 						//console.log(data.json);
 					}
 					else{
-						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
+						data.xxx = JSON.parse(data);
+						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'test' : 'login';
 					}
 				}
 				else {
