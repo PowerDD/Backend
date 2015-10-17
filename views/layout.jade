@@ -1,25 +1,21 @@
 doctype html
-html
+html(lang='en', ng-app='PowerDD')
 	head
-		meta(charset='UTF-8')
-		title #{config.title} | Backend System
+		title #{data.title} | PowerDD Backend
+		meta(charset='utf-8')
 		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
-		link(rel='stylesheet', type='text/css', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
-		link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css')
-		link(rel='stylesheet', type='text/css', href='//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
-		link(rel='stylesheet', type='text/css', href='/stylesheets/AdminLTE.css')
-		link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-
-		//if lt IE 9
-			script(src='//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-			script(src='//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+		link(rel='stylesheet', href='//src.powerdd.com/libs/bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//src.powerdd.com/libs/font-awesome/4.4.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='//src.powerdd.com/libs/adminlte/2.3.0/css/AdminLTE.css')
+		link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+		link(rel='icon', href='favicon.ico', type='image/x-icon'
 
 	body.skin-blue
 
 		input#apiUrl(type='hidden', value=config.apiUrl)
 		input#authKey(type='hidden', value=config.authKey)
 		input#role(type='hidden', value=info.memberType)
-		input#rolesMessage(type="hidden", value='{"administrator":"#{__('role-administrator')}", "dealer":"#{__('role-dealer')}", "developer":"#{__('role-developer')}", "guest":"#{__('role-guest')}", "headSale":"#{__('role-headSale')}", "manager":"#{__('role-manager')}", "member":"#{__('role-member')}", "officer":"#{__('role-officer')}", "sale":"#{__('role-sale')}"}')
+		//input#rolesMessage(type="hidden", value='{"administrator":"#{__('role-administrator')}", "dealer":"#{__('role-dealer')}", "developer":"#{__('role-developer')}", "guest":"#{__('role-guest')}", "headSale":"#{__('role-headSale')}", "manager":"#{__('role-manager')}", "member":"#{__('role-member')}", "officer":"#{__('role-officer')}", "sale":"#{__('role-sale')}"}')
 		input#language(type='hidden', value=config.language)
 		if permission.insert != ''
 			input#insertKey(type='hidden', value=permission.insert)
