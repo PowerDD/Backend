@@ -4,14 +4,14 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 		title #{__('Sign in')} | PowerDD Backend System
 		meta(charset='utf-8')
 		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
-		link(rel='stylesheet', href='//src.powerdd.com/libs/bootstrap/3.3.5/css/bootstrap.min.css')
-		link(rel='stylesheet', href='//src.powerdd.com/libs/font-awesome/4.4.0/css/font-awesome.min.css')
-		link(rel='stylesheet', href='//src.powerdd.com/libs/adminlte/2.3.0/css/AdminLTE.min.css')
+		link(rel='stylesheet', href='//cdn.powerdd.com/bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//cdn.powerdd.com/font-awesome/4.4.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='//cdn.powerdd.com/adminlte/2.3.0/css/AdminLTE.min.css')
 		link(rel='stylesheet', href='/stylesheets/login.css')
 		link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
 		link(rel='icon', href='favicon.ico', type='image/x-icon')
 
-	body.hold-transition.login-page.colorful(ng-controller='Auth')
+	body.hold-transition.login-page.colorful
 		.login-box
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
@@ -113,10 +113,10 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 					p(ng-hide="action == 'forgot' || registerSuccess == true || loginSuccess == true")
 						a(href='javascript:', ng-click="action = 'forgot'") #{__('Forgot password')}
 
-		script(src='//src.powerdd.com/libs/jquery/2.1.4/jquery.min.js')
-		script(src='//src.powerdd.com/libs/js-cookie/2.0.3/js.cookie.min.js')
-		script(src='//src.powerdd.com/libs/angular/1.4.6/angular.min.js')
-		script(src='//src.powerdd.com/libs/angular/ngStorage/0.3.9/ngStorage.min.js')
-		script(src='//src.powerdd.com/libs/bootstrap/3.3.5/js/bootstrap.min.js')
-		script(src='//src.powerdd.com/libs/adminlte/2.3.0/js/app.min.js')
+		script(src='//cdn.powerdd.com/jquery/2.1.4/jquery.min.js')
+		script(src='//cdn.powerdd.com/js-cookie/2.0.3/js.cookie.min.js')
+		script(src='//cdn.powerdd.com/angular/1.4.6/angular.min.js')
+		script(src='//cdn.powerdd.com/angular/ngStorage/0.3.9/ngStorage.min.js')
+		script(src='//cdn.powerdd.com/bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='//cdn.powerdd.com/adminlte/2.3.0/js/app.min.js')
 		script(src='/javascripts/login.js')
