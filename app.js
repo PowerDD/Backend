@@ -99,8 +99,8 @@ app.get('*', function(req, res) {
 				if (!error) {					
 					data.json = JSON.parse(body);
 					if(data.json.success){
-						
-						data.screen = 'index';
+						res.send(config);
+						data.screen = 'index';					
 						//console.log(data.json);
 					}
 					else{
