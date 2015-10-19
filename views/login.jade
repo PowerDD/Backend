@@ -98,7 +98,7 @@ html(lang='en', ng-app='PowerDD', ng-init="action = 'login'; apiUrl = '#{config.
 					#dv-info.callout.callout-info.margin-bottom-0.hidden
 						h4
 							i.fa.fa-comment
-							span.msg-header สถานะการทำงาน
+							span.msg-header สถานะการทำงาน 
 						p
 							span.msg-detail
 					button.btn.bg-light-blue.btn-block(type='button', disabled, ng-hide="action != 'login' || loginSuccess == true", ng-click="login()", ng-disabled="formLogin.username.$error.required || formLogin.password.$error.required") #{__('Sign in')}
