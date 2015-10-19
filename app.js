@@ -99,7 +99,7 @@ app.get('*', function(req, res) {
 				if (!error) {					
 					data.json = JSON.parse(body);
 					if(data.json.success){
-						res.send("Mr. Theeradej");
+						//res.send("Mr. Theeradej");
 						data.screen = 'index';					
 						//console.log(data.json);
 					}
