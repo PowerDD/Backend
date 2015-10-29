@@ -16,7 +16,7 @@ html(lang='en')
 			.box.box-primary
 				.box-header.text-center.bg-light-blue
 					h3.box-title #{__('Sign in')}
-				form
+				form#formLogin
 					.form-group.has-feedback
 						input#username.form-control(type='email', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
 						span.fa.fa-user.form-control-feedback
@@ -38,6 +38,63 @@ html(lang='en')
 							li(class="#{data.language == 'en' ? 'active' : ''}")
 								a(href="#{data.language == 'en' ? 'javascript:void(0)' : '/language/en'}") #{__('languageEnglish')}
 					.clearfix
+					
+				form#formRegister.hidden
+					form-group.has-feedback
+						input#username.form-control.text-required(name='username', type='text', placeholder="#{__('username')}", maxlength="36")
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback
+						input#mobile.form-control.text-required(name='mobile', type='text', placeholder="#{__('Mobile Phone Number')}", maxlength="10")
+						span.fa.fa-phone-square.form-control-feedback
+					.form-group.has-feedback
+						input#email.form-control.text-required(name='email', type='text', placeholder="#{__('email')}")
+						span.fa.fa-envelope.form-control-feedback
+					.form-group.has-feedback
+						input#password.form-control.text-required(name='password', type='password', placeholder="#{__('password')}")
+						span.fa.fa-lock.form-control-feedback
+					.form-group.has-feedback
+						input#password2.form-control.text-required(name='password2', type='password', placeholder="#{__('retype password')}")
+						span.fa.fa-lock.form-control-feedback
+					.clearfix
+					
+				form#forgot.hidden
+					.form-group.has-feedback
+						input#username.form-control(type='text', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback
+						input#question.form-control(type='text', placeholder="#{__('Question')}")
+						span.fa.fa-question-circle.form-control-feedback
+					.form-group.has-feedback
+						input#answer.form-control(type='text', placeholder="#{__('Answer')}")
+						span.fa.fa-quote-right.form-control-feedback
+					.clearfix
+					
+				.footer					
+					.text-center.hidden.fade-in-out
+						p.text-red
+							i.fa.fa-warning  
+							
+					.text-center.text-green.hidden.fade-in-out
+						p
+							i.fa.fa-check-circle  
+
+					#dv-info.callout.callout-info.margin-bottom-0.hidden
+						h4
+							i.fa.fa-comment
+							span.msg-header สถานะการทำงาน 
+						p
+							span.msg-detail
+					button#btn-login.btn.bg-light-blue.btn-block.disabled(type='button') #{__('Sign in')}
+					button#btn-register.btn.bg-light-blue.btn-block.hidden.disabled(type='button') #{__('Create account')}
+					button#btn-check.btn.bg-light-blue.btn-block.hidden(type='button') ตรวจสอบ
+
+					p.hidden
+						a(href='javascript:') #{__('Sign in')}
+					p.hidden
+						a(href='javascript:') #{__('Create account')}
+					p.hidden
+						a(href='javascript:') #{__('Forgot password')}
+					
 					
 		script(src='//cdn.powerdd.com/jquery/2.1.4/jquery.min.js')
 		script(src='//cdn.powerdd.com/js-cookie/2.0.3/js.cookie.min.js')
