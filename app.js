@@ -58,7 +58,7 @@ app.get('*', function(req, res) {
 	}
 	else {
 		data = {};
-		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login' : 'index';
+		data.screen = (typeof req.cookies.memberKey == 'undefined' || req.cookies.memberKey == '') ? 'login-test' : 'index';
 		data.language = req.cookies.language;
 		data.memberInfo = {};
 		data.memberInfo.locale = 'th';
@@ -105,18 +105,18 @@ app.get('*', function(req, res) {
 					}
 					else{
 						
-						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login';
+						data.screen = (typeof req.cookies.username != 'undefined' && req.cookies.username != '') ? 'lock' : 'login-test';
 					}
 				}
 				else {
-					data.screen = 'login';
+					data.screen = 'login-test';
 					console.log(error);
 				}
 				
 				routes.index(req, res, data);
 			});
 		}
-		else if ( data.screen != 'login' ) {
+		else if ( data.screen != 'login-test' ) {
 			if ( url.length >= 1 ) {
 				data.screen = url[0];
 				fs.exists('./views/'+data.screen+'.jade', function (exists) {
