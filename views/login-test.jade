@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+	head
+		title #{__('Sign in')} | PowerDD Backend System
+		meta(charset='utf-8')
+		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+		link(rel='stylesheet', href='//cdn.powerdd.com/bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//cdn.powerdd.com/font-awesome/4.4.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='//cdn.powerdd.com/adminlte/2.3.0/css/AdminLTE.min.css')
+		link(rel='stylesheet', href='/stylesheets/login.css')
+		link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+		link(rel='icon', href='favicon.ico', type='image/x-icon')
+		
+	body.hold-transition.login-page.colorful
+		.login-box
+			.box.box-primary
+				.box-header.text-center.bg-light-blue
+					h3.box-title #{__('Sign in')}
+				form
+					.form-group.has-feedback
+						input#username.form-control(type='email', placeholder="#{__('username')} #{__('or')} #{__('email')} #{__('or')} #{__('Mobile Phone Number')}")
+						span.fa.fa-user.form-control-feedback
+					.form-group.has-feedback
+						input#password.form-control(type='password', placeholder="#{__('password')}")
+						span.fa.fa-lock.form-control-feedback
+					.checkbox.pull-left
+						label
+							input#remember
+							|  #{__('Stay signed in')}
+					.btn-group.pull-right
+						span.btn.dropdown-toggle(data-toggle='dropdown')
+							i.fa.fa-globe
+							|  #{__('language')}  
+							span.caret
+						ul.dropdown-menu
+							li(class="#{data.language == 'th' ? 'active' : ''}")
+								a(href="#{data.language == 'th' ? 'javascript:void(0)' : '/language/th'}") #{__('languageThai')}
+							li(class="#{data.language == 'en' ? 'active' : ''}")
+								a(href="#{data.language == 'en' ? 'javascript:void(0)' : '/language/en'}") #{__('languageEnglish')}
+					.clearfix
+					
+		script(src='//cdn.powerdd.com/jquery/2.1.4/jquery.min.js')
+		script(src='//cdn.powerdd.com/js-cookie/2.0.3/js.cookie.min.js')
+		script(src='//cdn.powerdd.com/angular/1.4.6/angular.min.js')
+		script(src='//cdn.powerdd.com/angular/ngStorage/0.3.9/ngStorage.min.js')
+		script(src='//cdn.powerdd.com/bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='//cdn.powerdd.com/adminlte/2.3.0/js/app.min.js')
+		script(src='/javascripts/login.js')
