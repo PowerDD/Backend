@@ -54,7 +54,7 @@ app.get('*', function(req, res) {
 	{
 		res.cookie('language', url[1]);
 		req.setLocale(url[1]);
-		res.redirect(req.get('referer'));
+		res.redirect(req.get('referer')); 
 	}
 	else {
 		data = {};
