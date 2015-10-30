@@ -6,8 +6,8 @@ var shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E';
 //var shop = 'POWERDDH-8888-8888-B620-48D3B6489999';
 
 $(function() {
-	$(document).on('keydown','#password',function(){
-		if($('#password').val().length > 0){
+	$(document).on('change','#password',function(){
+		if($('#password').val().length > 0 && $('#username').val().length > 0){
 			$('#btn-login').removeClass('disabled');
 		}
 	})
